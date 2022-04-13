@@ -1,0 +1,123 @@
+{
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "plugins": [
+    "prettier",
+  ],
+  "extends": [
+    "react-app",
+    "prettier"
+  ],
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "_"
+      }
+    ],
+    "curly": "error",
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "react/jsx-fragments": [
+      "warn",
+      "syntax"
+    ],
+    "react/no-deprecated": "warn",
+    "react/prop-types": "off",
+    "react/no-unknown-property": "error",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [
+          {
+            "char": "'",
+            "alternatives": [
+              "’"
+            ]
+          }
+        ]
+      }
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "testing-library/no-await-sync-events": "error",
+    "testing-library/no-manual-cleanup": "error",
+    "testing-library/prefer-explicit-assert": "error",
+    "testing-library/prefer-presence-queries": "error",
+    "testing-library/prefer-screen-queries": "error",
+    "testing-library/no-wait-for-multiple-assertions": "off",
+    "testing-library/no-container": "off",
+    "testing-library/no-node-access": "off",
+    "testing-library/render-result-naming-convention": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "cypress/e2e/**/*.spec.js"
+      ],
+      "rules": {
+        "testing-library/prefer-presence-queries": "off",
+        "testing-library/prefer-screen-queries": "off",
+        "testing-library/await-async-utils": "off",
+        "testing-library/await-async-query": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.spec.*"
+      ],
+      "rules": {
+        "testing-library/render-result-naming-convention": "error"
+      }
+    },
+    {
+      "files": [
+        "**/*.{ts,tsx}"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error"
+        ],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-explicit-any": [
+          "error",
+          {
+            "fixToUnknown": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "16.6"
+    },
+    "import/resolver": "typescript"
+  }
+}

@@ -1,26 +1,57 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "outDir": "./dist/", // path to output directory
+    "sourceMap": true, // allow sourcemap support
+    "module": "esNext", // specify module code generation
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react", // use typescript to transpile jsx to js
+    "target": "es2015", // specify ECMAScript target version
+    "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+    "checkJs": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "strict": false, // someday, we'll be strict
+    "importHelpers": true, // https://www.typescriptlang.org/tsconfig#importHelpers
+    "forceConsistentCasingInFileNames": true, // https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "paths": {
+      "@actions/*": [
+        "src/actions/*"
+      ],
+      "@ui/*": [
+        "src/components/ui/*"
+      ],
+      "@stories/*": [
+        "src/components/stories/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@test/*": [
+        "test/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@app/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "typings/**/*"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/*.stories.js",
+    "**/stories/fixtures/*.js",
+    "**/stories/*.js",
+    "**/*.spec.js"
+  ] // eventually include our JS stories and specs
 }
